@@ -74,7 +74,7 @@ const Login=({setIsLogin}:{setIsLogin:Function})=>{
                                             onClick={toggleShowPassword}
                                             onMouseDown={(event) => event.preventDefault()} 
                                         >
-                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                            {showPassword ? <Visibility /> : <VisibilityOff />}
                                         </IconButton>
                                     </InputAdornment>
                                 ),

@@ -87,7 +87,7 @@ const Update=()=>{
                                             onClick={toggleShowPassword}
                                             onMouseDown={(event) => event.preventDefault()} 
                                         >
-                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                            {showPassword ? <Visibility /> : <VisibilityOff />}
                                         </IconButton>
                                     </InputAdornment>
                                 ),
