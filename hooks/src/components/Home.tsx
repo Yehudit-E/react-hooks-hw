@@ -5,8 +5,9 @@ import UserName from './UserName';
 import Update from './Update';
 import { Divider } from '@mui/material';
 function Home() {
-  const [user, userDispatch] = useReducer(userReducer, {firstName:"",lastName:"",password:""});
+  const [user, userDispatch] = useReducer(userReducer, {id:"",email:"",password:""});
   const [isLogin, setIsLogin] = useState<boolean>(false);
+  console.log(user)
   return (
     <>
       <UserContext.Provider value={{user,userDispatch}}>

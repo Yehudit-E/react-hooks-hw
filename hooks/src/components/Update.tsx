@@ -2,6 +2,7 @@ import { FormEvent, useContext, useRef, useState } from "react";
 import { UserContext, UserType } from "./reducer/UserReducer";
 import { Button, Dialog, DialogActions, DialogContent, IconButton, InputAdornment, TextField } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import axios from "axios";
 
 
 const Update=()=>{
@@ -17,11 +18,23 @@ const Update=()=>{
     const handleChange = (name:string,value:string)=>{
         setForm({...form,[name]:value})
     }
-    const SaveUser=(e:FormEvent)=>{
-        e.preventDefault();
-        console.log(form);    
-        userDispatch({type:"UPDATE_USER",data: form}); 
-
+    const SaveUser=async(e:FormEvent)=>{
+        e.preventDefault(); 
+        console.log(form)
+        try {
+            const res = await axios.put(`http://localhost:3000/api/user`, form, {
+                headers: {
+                    'user-id': user.id 
+                }
+            });
+            console.log(res)
+            userDispatch({type:"UPDATE_USER",data: form});
+        } catch (e:any) {
+            if (axios.isAxiosError(e) && e.response?.status===404) {
+                console.log(e)
+               alert('User not found:')             
+            }
+        } 
         setOpenForm(false);
     }
     return(
