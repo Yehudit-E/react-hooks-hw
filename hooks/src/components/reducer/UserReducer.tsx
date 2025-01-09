@@ -16,13 +16,27 @@ export const UserContext=createContext<{
     user: UserType,
     userDispatch: Dispatch<Action>;
 }>({
-    user:{firstName:"",lastName:"",password:""},
+    user:{
+        firstName: "",
+        lastName:"",
+        email: "",
+        password: "",
+        address:"",
+        phone:""
+    },
     userDispatch:()=>null
 });
 export default (state: UserType, action: Action): UserType => {
     switch (action.type) {
         case "CREATE_USER":
-        return action.data;
+        return {
+            firstName: action.data.firstName,
+            lastName: action.data.lastName,
+            email: action.data.email?action.data.email:"",
+            password: action.data.password,
+            address:action.data.address?action.data.address:"",
+            phone:action.data.phone?action.data.phone:""
+      };      
         case "UPDATE_USER":
         return action.data;
         default:
