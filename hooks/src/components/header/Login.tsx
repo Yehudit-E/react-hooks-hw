@@ -1,9 +1,9 @@
 import axios from "axios";
 import { FormEvent, useContext, useRef, useState } from "react";
-import { UserContext } from "./reducer/UserReducer";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, InputAdornment, Modal, TextField } from "@mui/material";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { UserContext } from "../../reducer/UserReducer";
 
 
 const Login=({setIsLogin}:{setIsLogin:Function})=>{
@@ -72,7 +72,7 @@ const Login=({setIsLogin}:{setIsLogin:Function})=>{
     }
     return(
         <>
-            <Button variant="text" onClick={()=>setOpenForm(true)} sx={{ textTransform: 'none' ,marginLeft:1.5}}>Login</Button>
+            <Button variant="text" onClick={()=>setOpenForm(true)} sx={{ height:"35px",textTransform: 'none',marginTop:3.8 ,marginLeft:1.5}}>Login</Button>
             {openForm && 
             // <form onSubmit={SaveUser}> 
             //     <TextField sx={{}} type="text" label="First Name" variant="outlined" ref={firstNmeRef}/>

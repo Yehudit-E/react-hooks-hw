@@ -1,25 +1,7 @@
-import { useReducer, useState } from 'react';
-import userReducer,{ UserContext } from './reducer/UserReducer';
-import Login from './Login';
-import UserName from './UserName';
-import Update from './Update';
-import { Divider } from '@mui/material';
-function Home() {
-  const [user, userDispatch] = useReducer(userReducer, {id:"",email:"",password:""});
-  const [isLogin, setIsLogin] = useState<boolean>(false);
-  console.log(user)
-  return (
-    <>
-      <UserContext.Provider value={{user,userDispatch}}>
+const Home=()=>{
 
-      <UserName></UserName>
-      <Divider variant="middle" sx={{ borderWidth : '1.2px' }} />
-      {!isLogin &&<Login setIsLogin={setIsLogin}/>}
-      {isLogin &&<Update></Update>}
-      </UserContext.Provider>
-
-    </>
-  )
+    return(<>
+        <h1 style={{padding:"20px",paddingTop:"0px",fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'}}>Home</h1>
+    </>)
 }
-
 export default Home

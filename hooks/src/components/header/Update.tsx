@@ -1,5 +1,5 @@
 import { FormEvent, useContext, useRef, useState } from "react";
-import { UserContext, UserType } from "./reducer/UserReducer";
+import { UserContext, UserType } from "../../reducer/UserReducer";
 import { Button, Dialog, DialogActions, DialogContent, IconButton, InputAdornment, TextField } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import axios from "axios";
@@ -39,7 +39,7 @@ const Update=()=>{
     }
     return(
         <>
-            <Button variant="text" onClick={()=>setOpenForm(true)} sx={{ textTransform: 'none' ,marginLeft:1.5}}>Update</Button>
+            <Button variant="text" onClick={()=>setOpenForm(true)} sx={{ height:"35px",textTransform: 'none',marginTop:3.8 ,marginLeft:1.5}}>Update</Button>
             {openForm && 
             // <form onSubmit={SaveUser}>
             //     <input type="text" id="firstName" placeholder="First Name" value={form.firstName} onChange={(e)=>handleChange(e.target.id,e.target.value)}/>
